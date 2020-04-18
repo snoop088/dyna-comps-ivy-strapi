@@ -7,4 +7,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'test-dyn';
+  simpleHTML = '<h1>wow!</h1>';
 }

@@ -1,0 +1,23 @@
+<p>dyn-comp-holder works!</p>
+<div class="btn"><button type="button" (click)="populateContent()">get content?</button></div>
+<div class="btn"><button type="button" (click)="generateComponent()">gen compos</button></div>
+<div class="btn"><button type="button" (click)="createCarousel()">carousel?</button></div>
+<div class="btn"><button type="button" (click)="getUser('mgechev')">get the user</button></div>
+<div class="btn"><button type="button" (click)="getPeople()">get the ppl</button></div>
+
+<ul *ngIf="users | async">
+    <li *ngFor="let user of users | async">{{ user.login }} | {{ user.html_url }}</li>
+</ul>
+<ul *ngIf="people | async">
+    <li *ngFor="let person of people | async">
+        <figure>{{ person.firstName }}
+            <img [src]="person.img?.url ? 'http://dogg:1337/' + person.img.url : ''" alt=""></figure>
+            <div>email: {{ person.email }}</div>
+    </li>
+</ul>
+<!-- this is the holder -->
+<ng-template #meTemplateMate></ng-template>
+<!-- this is the source -->
+<ng-template #meSourceMate let-item="data">
+    <h4>Yo my name is: {{ item.name }}</h4>
+</ng-template>

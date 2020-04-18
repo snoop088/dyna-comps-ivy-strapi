@@ -1,0 +1,10 @@
+ul {
+    list-style: none;
+}
+figure {
+    max-width: 300px;
+}
+img {
+    width: 100%;
+    height: auto;
+}
