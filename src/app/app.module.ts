@@ -5,6 +5,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DynaCompsModule } from './dyna-comps/dyna-comps.module';
 import { HttpClientModule } from '@angular/common/http';
+import { BoModule } from './bo/bo.module';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -12,9 +14,11 @@ import { HttpClientModule } from '@angular/common/http';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     DynaCompsModule,
-    HttpClientModule
+    HttpClientModule,
+    SharedModule,
+    BoModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
