@@ -1,0 +1,11 @@
+div.if {
+    display: flex;
+    flex-direction: row;
+    margin: 0.5rem 0;
+}
+div.if label {
+    flex: 0 1 10rem
+}
+fieldset {
+    margin: 1rem 0;
+}

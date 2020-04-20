@@ -1,6 +1,54 @@
 <p>Create New Person</p>
-<form #form="ngForm" (submit)="save()">
+<form #form="ngForm" (ngSubmit)="save()">
+    <div class="if">
+        <label for="title">Title</label>
+        <input type="text" id="title" name="title" [(ngModel)]="person.title">
+    </div>
+    <div class="if">
+        <label for="firstName">First name</label>
+        <input type="text" id="firstName" name="firstName" [(ngModel)]="person.firstName">
+    </div>
+    <div class="if">
+        <label for="lastName">Last name</label>
+        <input type="text" id="lastName" name="lastName" [(ngModel)]="person.lastName">
+    </div>
+    <div class="if">
+        <label for="email">Email</label>
+        <input class="form-control" required type="email" id="email" name="email" email="true" [(ngModel)]="person.email">
+    </div>
+    <fieldset>
+        <legend>Address:</legend>
+        <div class="if">
+            <label for="addressStreet1">Street Address 1</label>
+            <input type="text" id="addressStreet1" name="addressStreet1" [(ngModel)]="person.address.street1">
+        </div>
+        <div class="if">
+            <label for="addressStreet2">Street Address 2</label>
+            <input type="text" id="addressStreet2" name="addressStreet2" [(ngModel)]="person.address.street2">
+        </div>
+        <div class="if">
+            <label for="addressCountry">Country</label>
+            <input type="text" id="addressCountry" name="addressCountry" [(ngModel)]="person.address.country">
+        </div>
+        <div class="if">
+            <label for="addressCity">City</label>
+            <select name="addressCity" id="addressCity" [(ngModel)]="person.address.city">
+                <option value="Sofia">Sofia</option>
+                <option value="Sofia">Burgas</option>
+                <option value="Sofia">Varna</option>
+            </select>
+        </div>
+        <div class="if">
+            <label for="addressZip">ZIP</label>
+            <input type="text" id="addressZip" name="addressZip" [(ngModel)]="person.address.zip">
+        </div>
+    </fieldset>
+    
     <!-- <input type="text" name="userName" placeholder="Username" [(ngModel)]="userData.username">
     <input type="password" name="userPassword" placeholder="Password" [(ngModel)]="userData.password">
     <button type="submit">login??</button> -->
+    <div><input type="submit" [disabled]="form.invalid" value="Save"></div>
 </form>
+<p *ngIf="created | async as person">
+    {{ person.firstName }} {{ person.lastName }} was created
+</p>
