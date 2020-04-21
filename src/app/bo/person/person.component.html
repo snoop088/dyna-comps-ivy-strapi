@@ -43,10 +43,13 @@
             <input type="text" id="addressZip" name="addressZip" [(ngModel)]="person.address.zip">
         </div>
     </fieldset>
-    
-    <!-- <input type="text" name="userName" placeholder="Username" [(ngModel)]="userData.username">
-    <input type="password" name="userPassword" placeholder="Password" [(ngModel)]="userData.password">
-    <button type="submit">login??</button> -->
+    <fieldset *ngIf="pets | async">
+        <legend>Pets</legend>
+        <div *ngFor="let pet of pets | async; let i = index" class="pet">
+            <label for="">{{ pet.name }}</label>
+            <input type="checkbox" name="pet" (change)="togglePet(pet)">
+        </div>
+    </fieldset>
     <div><input type="submit" [disabled]="form.invalid" value="Save"></div>
 </form>
 <p *ngIf="created | async as person">

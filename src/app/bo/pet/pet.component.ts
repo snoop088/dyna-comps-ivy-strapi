@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 export interface Pet {
+  id?: string;
   name: string;
   type: string;
   age: number;
